@@ -40,16 +40,11 @@ export class IdAmbulanceWlList {
   async componentWillLoad() {
     this.waitingPatients = await this.getWaitingPatientsAsync();
   }
-
-  private isoDateToLocale(iso:string) {
-    if(!iso) return '';
-    return new Date(Date.parse(iso)).toLocaleTimeString()
-  }
-
+  
   render() {
     return (
       <Host>
-               <md-list>
+          <md-list>
           {this.waitingPatients.map(patient =>
             <md-list-item>
               <div slot="headline">{patient.name}</div>
@@ -60,6 +55,11 @@ export class IdAmbulanceWlList {
         </md-list>
       </Host>
     );
+  }
+
+  private isoDateToLocale(iso:string) {
+    if(!iso) return '';
+    return new Date(Date.parse(iso)).toLocaleTimeString()
   }
 
 }

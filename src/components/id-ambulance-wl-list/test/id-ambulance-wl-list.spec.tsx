@@ -7,13 +7,6 @@ describe('id-ambulance-wl-list', () => {
       components: [IdAmbulanceWlList],
       html: `<id-ambulance-wl-list></id-ambulance-wl-list>`,
     });
-    expect(page.root).toEqualHtml(`
-      <id-ambulance-wl-list>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </id-ambulance-wl-list>
-    `);
 
   const wlList = page.rootInstance as IdAmbulanceWlList;
   const expectedPatients = wlList?.waitingPatients?.length
